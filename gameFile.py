@@ -5,6 +5,7 @@ import chess
 import chess.pgn
 
 
+
 def importGameFromFile():
     try:
         with open("tpk4186_assignment2/game.pgn", "r") as fp:
@@ -17,3 +18,4 @@ def importGameFromFile():
         print("Could not read file") 
     
 
+#Comment
