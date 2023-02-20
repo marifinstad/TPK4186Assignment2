@@ -4,18 +4,15 @@ import chessGame
 import chess
 import chess.pgn
 
-
-
+#Task 2
 def importGameFromFile():
     try:
-        with open("tpk4186_assignment2/game.pgn", "r") as fp:
-            game = chess.pgn.read_game(fp)   
-            white_username = game.headers['White']
-            print(white_username)                 
+        with open("game.pgn", "r") as fp:
+            game = chess.pgn.read_game(fp)                   
             fp.read()
             fp.close()
+            return game
     except:
         print("Could not read file") 
     
-
-#Comment again again
+importGameFromFile()
