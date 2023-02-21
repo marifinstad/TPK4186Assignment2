@@ -62,7 +62,7 @@ def insertTask7():
 
 #TASK 8 
 listOfMoves = gameFile.readNumberOfMovesGames()
-listOfMoves.sort()
+listOfMoves.sort(reverse = True)
 print(listOfMoves)
 
 

@@ -3,6 +3,7 @@ import re
 import chessGame
 import chess
 import chess.pgn
+#import matplotlib.pyplot as plt
 
 #Task 2
 def importGameFromFile():
@@ -58,5 +59,17 @@ def readNumberOfMovesGames():
             return movesList
     except:
         print("Could not read file")  
+
 #TEST TASK 8
 #print(readNumberOfMovesGames())
+
+#Creates plot with number of moves
+
+# x = 2600
+# y = readNumberOfMovesGames()
+
+# plt.plot(x, y)
+# plt.xlabel("Number of games")
+# plt.ylabel("Number of moves")
+# plt.title("Number of moves in games")
+# plt.show()
