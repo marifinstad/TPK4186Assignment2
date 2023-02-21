@@ -37,6 +37,26 @@ def readChessWins(counter):
         print("Could not read file") 
         
 #TEST 7
-couts = [0,0,0]
-readChessWins(couts)
-print(couts)
+# couts = [0,0,0]
+# readChessWins(couts)
+# print(couts)
+
+#TASK 8
+def readNumberOfMovesGames():
+    try:
+        with open("Stockfish_15_64-bit.commented.[2600].pgn" ,"r") as fp:
+            movesList = [] 
+            while True: 
+                counter = 0
+                currentGame = chess.pgn.read_game(fp)
+                if currentGame is None: 
+                    break
+                for el in currentGame.mainline_moves():
+                    counter += 1
+                movesList.append(counter)
+            fp.close()
+            return movesList
+    except:
+        print("Could not read file")  
+#TEST TASK 8
+#print(readNumberOfMovesGames())

@@ -5,57 +5,66 @@ import gameFile
 doc = aw.Document()
 builder = aw.DocumentBuilder(doc)
 
-builder.write("hei")
+def insertTask7():
 
-#TASK 7
-counts = [0,0,0]
-gameFile.readChessWins(counts)
+    builder.write("This is a overview of wins, losses and remis for the StockFish: ")
 
-table = builder.start_table()
-# insert cell 
-builder.insert_cell()
-table.auto_fit(aw.tables.AutoFitBehavior.AUTO_FIT_TO_CONTENTS)
+    #TASK 7
+    counts = [0,0,0]
+    gameFile.readChessWins(counts)
 
-# set formatting and add text
-builder.cell_format.vertical_alignment = aw.tables.CellVerticalAlignment.CENTER
-builder.write("Wins ")
+    table = builder.start_table()
+    # insert cell 
+    builder.insert_cell()
+    table.auto_fit(aw.tables.AutoFitBehavior.AUTO_FIT_TO_CONTENTS)
 
-# insert cell
-builder.insert_cell()
-builder.write("Lose")
+    # set formatting and add text
+    builder.cell_format.vertical_alignment = aw.tables.CellVerticalAlignment.CENTER
+    builder.write("Wins ")
 
-builder.insert_cell()
-builder.write("Remis")
+    # insert cell
+    builder.insert_cell()
+    builder.write("Lose")
 
-# end row
-builder.end_row()
+    builder.insert_cell()
+    builder.write("Remis")
 
-# insert another cell in the next row
-builder.insert_cell()
+    # end row
+    builder.end_row()
 
-# format row if required
-builder.row_format.height = 100
-builder.row_format.height_rule = aw.HeightRule.EXACTLY
+    # insert another cell in the next row
+    builder.insert_cell()
 
-# format cell and add text
-builder.cell_format.orientation = aw.TextOrientation.HORIZONTAL
-builder.writeln(str(counts[0]))
+    # format row if required
+    builder.row_format.height = 100
+    builder.row_format.height_rule = aw.HeightRule.EXACTLY
 
-# insert another cell, set formatting and add text
-builder.insert_cell()
-builder.cell_format.orientation = aw.TextOrientation.HORIZONTAL
-builder.writeln(str(counts[1]))
+    # format cell and add text
+    builder.cell_format.orientation = aw.TextOrientation.HORIZONTAL
+    builder.writeln(str(counts[0]))
 
-builder.insert_cell()
-builder.cell_format.orientation = aw.TextOrientation.HORIZONTAL
-builder.writeln(str(counts[2]))
+    # insert another cell, set formatting and add text
+    builder.insert_cell()
+    builder.cell_format.orientation = aw.TextOrientation.HORIZONTAL
+    builder.writeln(str(counts[1]))
 
-# end row
-builder.end_row()
+    builder.insert_cell()
+    builder.cell_format.orientation = aw.TextOrientation.HORIZONTAL
+    builder.writeln(str(counts[2]))
 
-# end table
-builder.end_table()
+    # end row
+    builder.end_row()
+
+    # end table
+    builder.end_table()
 
 #END OF TASK 7
 
+#TASK 8 
+listOfMoves = gameFile.readNumberOfMovesGames()
+listOfMoves.sort()
+print(listOfMoves)
+
+
+insertTask7()
 doc.save("test.docx")
